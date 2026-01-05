@@ -160,7 +160,7 @@ No inline magic numbers.
 
 In this project, a **model** is any component that outputs a numeric score or probability used for ranking or classification.
 
-So you have both:
+
 
 - Supervised predictive models (learn from labels)
 - Unsupervised scoring models (cosine/centroid, co-visitation)
@@ -195,7 +195,7 @@ Predicted probability:
 p(y=1\mid x)=\sigma(w^\top x+b)
 \]
 
-This matters because the pipeline is probability-first: you choose \( \tau \) on VAL, and you plot ROC/PR on scores.
+This matters because the pipeline is probability-first:  choose \( \tau \) on VAL, and  plot ROC/PR on scores.
 
 ---
 
@@ -205,7 +205,7 @@ These are not trained on labels, but are first-class models/signals used for ran
 
 ### 4.1 Centroid Profile Model (User Representation)
 
-You compute profile centroids in the embedding space for user history (cosine).  
+compute profile centroids in the embedding space for user history (cosine).  
 User vector:
 
 \[
@@ -230,7 +230,7 @@ This is a strong content-based baseline and a valuable feature for supervised mo
 
 ### 4.3 Co-Visitation / Co-Occurrence Model (Behavioral Signal)
 
-You build co-visitation/co-occurrence counts on TRAIN only.  
+build co-visitation/co-occurrence counts on TRAIN only.  
 This captures “users who read X also read Y” style signals without leakage.
 
 ---
@@ -239,7 +239,7 @@ This captures “users who read X also read Y” style signals without leakage.
 
 ### 5.1 Recency Decay Model (Time Weighting)
 
-You explicitly include recency decay tunables.  
+include recency decay tunables.  
 A typical form is exponential decay:
 
 \[
@@ -254,7 +254,7 @@ This influences either:
 
 ## 6) Meta-Model: Stacking (Ensemble Model)
 
-You optionally train a stacking meta-model:
+optionally train a stacking meta-model:
 
 - Concatenates base model scores and selected features  
 - Trains a Logistic Regression meta-model on TRAIN via K-folds  
@@ -264,8 +264,8 @@ You optionally train a stacking meta-model:
 
 ## K-Fold Cross-Validation (Where It’s Used and Why)
 
-Yes — you use K-fold validation, but not as “CV for performance reporting.”  
-You use it as a leakage-safe mechanism for stacking:
+ use K-fold validation, but not as “CV for performance reporting.”  
+ use it as a leakage-safe mechanism for stacking:
 
 - Split TRAIN into K folds (`K_FOLDS`)  
 - Train base models on K−1 folds  
