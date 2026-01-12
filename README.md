@@ -37,22 +37,9 @@ Upload the project zip(s) into Colab and run:
 !python -m pip install -q datasets matplotlib gensim scikit-learn scipy pandas numpy
 ```
 
----
 
-### 3.3 NLTK Resources (Only if Needed)
-Some environments (especially Google Colab) require downloading NLTK tokenizer/stopword resources **only if the preprocessing pipeline uses NLTK tokenization or stopword removal**.  
-If the project uses regex-based tokenization or scikit-learn’s internal tokenization, this step is **not required**.
 
-```python
-# Only required if NLTK tokenization / stopwords are used in preprocessing:
-import nltk
-nltk.download("punkt")
-nltk.download("stopwords")
-```
-
----
-
-### 3.4 Run Full Benchmark
+### 3.3 Run Full Benchmark
 ```python
 from benchmark_runner import run_benchmark
 from config import Config
@@ -63,7 +50,7 @@ run_benchmark(cfg)
 
 ---
 
-### 3.5 Generate Top-K Recommendations
+### 3.4 Generate Top-K Recommendations
 ```python
 from topk_retrieval import run_topk
 run_topk(cfg)
